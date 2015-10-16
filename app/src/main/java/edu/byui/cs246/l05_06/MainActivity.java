@@ -25,8 +25,8 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                // This acts just like clicking the share button
+                sendMessage(findViewById(R.id.button_share));
             }
         });
     }
@@ -53,24 +53,34 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    // Sends the message to the displayMessage activity
     public void sendMessage(View view) {
         Intent intent = new Intent(this, DisplayMessageActivity.class);
-        EditText editText;
 
+        // We will pass the reference as a prebuilt string, for now
         String message = "";
 
+        // Get our editTexts
+        EditText editText;
+
+        // Book editText
         editText = (EditText) findViewById(R.id.edit_book);
         message += editText.getText().toString();
         message += " ";
 
+        // Chapter editText
         editText = (EditText) findViewById(R.id.edit_chapter);
         message += editText.getText().toString();
         message += ":";
 
+        // Verse editText
         editText = (EditText) findViewById(R.id.edit_verse);
         message += editText.getText().toString();
 
+        // Save message as extra
         intent.putExtra(EXTRA_MESSAGE, message);
+
+        // Start the display message activity
         startActivity(intent);
     }
 }

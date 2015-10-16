@@ -15,30 +15,19 @@ public class DisplayMessageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
-
-        //FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        //fab.setOnClickListener(new View.OnClickListener() {
-        //    @Override
-        //    public void onClick(View view) {
-        //        Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-        //                .setAction("Action", null).show();
-        //    }
-        //});
-        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
+        // Get intent
         Intent intent = getIntent();
+
+        // Get passed message
         String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
 
+        // Set content
         setContentView(R.layout.activity_display_message);
 
-        //TextView textView = new TextView(this);
+        // Get our output text view
         TextView textView = (TextView) findViewById(R.id.display_message);
 
+        // Set the message
         textView.setText(message);
-
-        //setContentView(textView);
     }
-
 }
