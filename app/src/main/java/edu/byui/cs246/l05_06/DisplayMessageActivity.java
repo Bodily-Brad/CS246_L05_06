@@ -31,11 +31,14 @@ public class DisplayMessageActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
 
-        TextView textView = new TextView(this);
-        textView.setTextSize(40);
+        setContentView(R.layout.activity_display_message);
+
+        //TextView textView = new TextView(this);
+        TextView textView = (TextView) findViewById(R.id.display_message);
+
         textView.setText(message);
 
-        setContentView(textView);
+        //setContentView(textView);
     }
 
 }

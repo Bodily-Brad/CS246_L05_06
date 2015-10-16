@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, DisplayMessageActivity.class);
         EditText editText;
 
-        String message = "Your favorite scripture is: ";
+        String message = "";
 
         editText = (EditText) findViewById(R.id.edit_book);
         message += editText.getText().toString();
